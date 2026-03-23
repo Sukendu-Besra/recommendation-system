@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>RecoStream: Personalized Recommendation Engine</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Icons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <!-- Styles -->
+    <link rel="stylesheet" href="/static/styles.css?v=3" />
+  </head>
+  <body>
+    <!-- Background Animation Elements -->
+    <div class="bg-orb orb-1"></div>
+    <div class="bg-orb orb-2"></div>
+    <div class="bg-orb orb-3"></div>
+    
+    <div class="container glass-panel">
+      
+      <header class="app-header">
+        <div class="logo-wrapper">
+          <i class='bx bx-trending-up logo-icon'></i>
+        </div>
+        <div>
+          <h1>RecoStream</h1>
+          <p class="subtitle">Personalized Recommendation Engine powered by advanced machine learning models (MovieLens Demo).</p>
+        </div>
+      </header>
+
+      <div class="grid-layout">
+        <!-- Main Actions Area -->
+        <div class="column-main">
+          <section class="card glass-card">
+            <div class="card-header">
+              <i class='bx bx-search-alt-2'></i>
+              <h2>Get Recommendations</h2>
+            </div>
+            <div class="input-grid">
+              <div class="input-group">
+                <label for="userId">User ID</label>
+                <div class="input-wrapper">
+                  <i class='bx bx-user'></i>
+                  <input id="userId" type="number" min="0" value="1" placeholder="e.g. 1" />
+                </div>
+              </div>
+              <div class="input-group">
+                <label for="strategy">Strategy</label>
+                <div class="input-wrapper select-wrapper">
+                  <i class='bx bx-git-branch'></i>
+                  <select id="strategy">
+                    <option value="hybrid" selected>Hybrid (CF + Content)</option>
+                    <option value="svd">Matrix Factorization (SVD)</option>
+                    <option value="item_cf">Item-based CF (Cosine)</option>
+                    <option value="user_cf">User-based CF (Cosine)</option>
+                    <option value="content">Content-based (Genres)</option>
+                  </select>
+                </div>
+              </div>
+              <div class="input-group">
+                <label for="k">Top K Results</label>
+                <div class="input-wrapper">
+                  <i class='bx bx-list-ul'></i>
+                  <input id="k" type="number" min="1" max="100" value="10" />
+                </div>
+              </div>
+            </div>
+            <div class="actions">
+              <button id="recommendBtn" class="btn btn-primary">
+                <span>Recommend Matches</span>
+                <i class='bx bx-right-arrow-alt'></i>
+              </button>
+            </div>
+          </section>
+
+          <section class="card glass-card">
+            <div class="card-header">
+              <i class='bx bx-test-tube'></i>
+              <h2>Real-time Simulation Engine</h2>
+              <span class="badge">Live Demo</span>
+            </div>
+            <p class="hint">Injects a new (user, item, rating) interaction dynamically and instantly recalibrates your hybrid recommendations.</p>
+            
+            <div class="input-grid">
+              <div class="input-group">
+                <label for="simItemId">Item ID</label>
+                <div class="input-wrapper">
+                  <i class='bx bx-movie-play'></i>
+                  <input id="simItemId" type="number" min="0" value="1" />
+                </div>
+              </div>
+              <div class="input-group">
+                <label for="simRating">Rating (0.5 - 5)</label>
+                <div class="input-wrapper">
+                  <i class='bx bx-star'></i>
+                  <input id="simRating" type="number" min="0.5" max="5" step="0.5" value="4" />
+                </div>
+              </div>
+              <div class="input-group">
+                <label for="simStrategy">Re-eval Strategy</label>
+                <div class="input-wrapper select-wrapper">
+                  <i class='bx bx-refresh'></i>
+                  <select id="simStrategy">
+                    <option value="hybrid" selected>Hybrid</option>
+                    <option value="content">Content</option>
+                    <option value="item_cf">Item CF</option>
+                    <option value="user_cf">User CF</option>
+                    <option value="svd">SVD</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            
+            <div class="actions split-actions">
+              <button id="simulateBtn" class="btn btn-secondary">
+                <i class='bx bx-play-circle'></i>
+                <span>Simulate Interaction</span>
+              </button>
+              <button id="resetBtn" class="btn btn-ghost">
+                <i class='bx bx-reset'></i>
+                <span>Reset Demo Overlay</span>
+              </button>
+            </div>
+          </section>
+        </div>
+
+        <!-- Results Area -->
+        <div class="column-sidebar">
+          <section class="card glass-card results-card">
+            <div class="card-header sticky-header">
+              <div class="header-title">
+                <i class='bx bx-poll'></i>
+                <h2>Results</h2>
+              </div>
+              <div id="status" class="status-badge status-idle">Ready</div>
+            </div>
+            
+            <div class="results-container">
+              <ul id="results" class="results-list">
+                <!-- Empty state shown by default -->
+                <div class="empty-state">
+                  <i class='bx bx-movie'></i>
+                  <p>Your recommendations will appear here.</p>
+                  <span class="subtext">Select parameters and click "Recommend Matches" to begin.</span>
+                </div>
+              </ul>
+            </div>
+          </section>
+        </div>
+      </div>
+      
+    </div>
+
+    <!-- Scripts -->
+    <script src="/static/app.js?v=2"></script>
+  </body>
+</html>

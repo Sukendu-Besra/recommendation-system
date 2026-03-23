@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="480" viewBox="0 0 900 480">
+  <rect x="0" y="0" width="900" height="480" fill="#0b1020"/>
+  <rect x="40" y="40" width="820" height="110" rx="16" fill="#121a33" stroke="rgba(255,255,255,0.12)"/>
+  <text x="70" y="90" fill="#e7ecff" font-family="Arial" font-size="34" font-weight="700">Shyft Recommendations</text>
+  <text x="70" y="130" fill="#aab3d6" font-family="Arial" font-size="16">Pick a user id � choose strategy � top-k results</text>
+
+  <rect x="40" y="170" width="390" height="260" rx="16" fill="#121a33" stroke="rgba(255,255,255,0.12)"/>
+  <text x="70" y="220" fill="#e7ecff" font-family="Arial" font-size="22" font-weight="600">Request</text>
+  <rect x="70" y="245" width="320" height="36" rx="10" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.12)"/>
+  <text x="90" y="268" fill="#aab3d6" font-family="Arial" font-size="14">User ID input</text>
+  <rect x="70" y="295" width="320" height="36" rx="10" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.12)"/>
+  <text x="90" y="318" fill="#aab3d6" font-family="Arial" font-size="14">Strategy select</text>
+  <rect x="70" y="345" width="320" height="36" rx="10" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.12)"/>
+  <text x="90" y="368" fill="#aab3d6" font-family="Arial" font-size="14">Top K input</text>
+  <rect x="70" y="400" width="170" height="42" rx="10" fill="#4f8cff" opacity="0.95"/>
+  <text x="125" y="427" fill="#e7ecff" font-family="Arial" font-size="16" font-weight="700">Recommend</text>
+
+  <rect x="450" y="170" width="410" height="260" rx="16" fill="#121a33" stroke="rgba(255,255,255,0.12)"/>
+  <text x="480" y="220" fill="#e7ecff" font-family="Arial" font-size="22" font-weight="600">Results</text>
+  <rect x="480" y="245" width="350" height="34" rx="10" fill="rgba(255,255,255,0.05)"/>
+  <text x="500" y="268" fill="#aab3d6" font-family="Arial" font-size="14">1) item_id: title (score)</text>
+  <rect x="480" y="290" width="350" height="34" rx="10" fill="rgba(255,255,255,0.05)"/>
+  <text x="500" y="313" fill="#aab3d6" font-family="Arial" font-size="14">2) item_id: title (score)</text>
+  <rect x="480" y="335" width="350" height="34" rx="10" fill="rgba(255,255,255,0.05)"/>
+  <text x="500" y="358" fill="#aab3d6" font-family="Arial" font-size="14">3) item_id: title (score)</text>
+</svg>
+

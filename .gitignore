@@ -1,0 +1,27 @@
+__pycache__/
+.pytest_cache/
+.mypy_cache/
+.venv/
+venv/
+.env
+.DS_Store
+
+# Data
+data/*.csv
+data/*.zip
+data/ml-*/
+data/**/*.parquet
+
+# Trained artifacts
+models/*.joblib
+models/*.pkl
+models/*.json
+
+# Logs
+logs/
+*.log
+
+# Notebooks outputs
+notebooks/*.html
+reports/
+
