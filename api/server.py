@@ -50,7 +50,11 @@ def create_app() -> FastAPI:
 
     hyperparams = ModelHyperParams()
 
-    app = FastAPI(title="Shyft Recommendation Engine", version="1.0.0")
+    app = FastAPI(
+        title="RecoStream API",
+        version="1.0.0",
+        description="RecoStream: Personalized Recommendation Engine - Smart, Scalable, and Personalized Recommendations",
+    )
     app.add_middleware(
         CORSMiddleware,
         allow_origins=["*"],

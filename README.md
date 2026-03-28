@@ -1,8 +1,9 @@
-# Shyft: End-to-End Recommendation System (Production-Style Demo)
+# RecoStream: End-to-End Recommendation System
 
-This project builds a personalized recommendation system in Python using a real dataset (MovieLens 100K), and exposes it as a REST API with a simple web UI.
-
-You can think of it like “Netflix/YouTube-style recommendations”: based on what users liked in the past, we suggest the best next items.
+RecoStream is a production-style recommendation engine designed as a real product prototype inspired by modern streaming and content platforms.  
+Smart, Scalable, and Personalized Recommendations.  
+It combines collaborative filtering, content intelligence, and matrix factorization to deliver personalized suggestions through a FastAPI service and a lightweight web UI.  
+Built for practical learning, portfolio impact, and interview-ready storytelling.
 
 ## Problem Statement
 
