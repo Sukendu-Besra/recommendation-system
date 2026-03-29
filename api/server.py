@@ -63,10 +63,6 @@ def create_app() -> FastAPI:
         allow_headers=["*"],
     )
 
-    # Serve frontend UI
-    frontend_dir = os.path.join(os.path.dirname(os.path.dirname(__file__)), "frontend")
-    app.mount("/static", StaticFiles(directory=frontend_dir), name="static")
-
     engine = None
     if os.path.exists(model_path):
         logger.info("Loading artifacts from %s", model_path)
@@ -102,9 +98,7 @@ def create_app() -> FastAPI:
         app.state.stats["requests_total"] += 1
         return await call_next(request)
 
-    @app.get("/")
-    def index() -> FileResponse:
-        return FileResponse(os.path.join(frontend_dir, "index.html"))
+    # Note: StaticFiles mounted at `/` with `html=True` will serve `index.html` automatically.
 
     @app.get("/health")
     def health() -> Dict[str, Any]:
@@ -160,6 +154,11 @@ def create_app() -> FastAPI:
             return {"hyperparams": engine.hyperparams.__dict__}
         except Exception:
             return {"hyperparams": None}
+
+    # Serve frontend UI (mount at root so index.html and static assets resolve)
+    # IMPORTANT: This must be mounted LAST, after all API routes, or it will intercept API calls
+    frontend_dir = os.path.join(os.path.dirname(os.path.dirname(__file__)), "frontend")
+    app.mount("/", StaticFiles(directory=frontend_dir, html=True), name="static")
 
     return app
 
